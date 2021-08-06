@@ -1666,27 +1666,7 @@ end)
 
 local SettingsTabCategoryCredits = SettingsTab:AddCategory("Credits", 2)
 
-SettingsTabCategoryCredits:AddLabel("Script - Pawel12d#0272")
-
-SettingsTabCategoryCredits:AddLabel("ESP - Modified Kiriot ESP")
-
-SettingsTabCategoryCredits:AddLabel("UI Library - Modified Phantom Ware")
-
-SettingsTabCategoryCredits:AddLabel("")
-
-SettingsTabCategoryCredits:AddLabel("Special Thanks To:")
-
-SettingsTabCategoryCredits:AddLabel("ny#2817")
-
-SettingsTabCategoryCredits:AddLabel("neeX#3712")
-
-SettingsTabCategoryCredits:AddLabel("MrPolaczekPL#1884")
-
-SettingsTabCategoryCredits:AddLabel("")
-
-SettingsTabCategoryCredits:AddLabel("Don't steal credits or burn in hell.")
-
-
+SettingsTabCategoryCredits:AddLabel("Script - NoobyNecks#1337")
 
 -- Other
 game.Players.LocalPlayer.Additionals.TotalDamage.Changed:Connect(function(val)
