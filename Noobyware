@@ -87,19 +87,19 @@ local hookfunc = hookfunc or hookfunction or replaceclosure or false
 
 Hint.Text = "NoobyWare | Setting up configuration settings..."
 
-if not isfolder("NoobyWare") then
+if not isfolder("hexagon") then
 	print("creating NoobyWare folder")
-	makefolder("NoobyWare")
+	makefolder("hexagon")
 end
 
-if not isfolder("NoobyWare/configs") then
+if not isfolder("hexagon/configs") then
 	print("creating NoobyWare configs folder")
-	makefolder("NoobyWare/configs")
+	makefolder("hexagon/configs")
 end
 
-if not isfile("NoobyWare/autoload.txt") then
-	print("creating NoobyWare autoload file")
-	writefile("NoobyWare/autoload.txt", "")
+if not isfile("hexagon/autoload.txt") then
+	print("creating hexagon autoload file")
+	writefile("hexagon/autoload.txt", "")
 end
 
 if not isfile("hexagon/custom_skins.txt") then
@@ -145,7 +145,7 @@ local Hitboxes = {
 }
 
 local HexagonFolder = Instance.new("Folder", workspace)
-HexagonFolder.Name = "NoobyWare"
+HexagonFolder.Name = "hexagon"
 
 local oldOsPlatform = game.Players.LocalPlayer.OsPlatform
 local oldMusicT = game.Players.LocalPlayer.PlayerGui.Music.ValveT:Clone()
@@ -188,7 +188,7 @@ local curVel = 16
 local isBhopping = false
 
 local ESP = loadstring(game:HttpGet("https://raw.githubusercontent.com/Pawel12d/hexagon/main/scripts/ESP.lua"))()
-local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/NoobyNeck/NoobyWare/main/UI"))()
+local library = loadstring(game:HttpGet("https://pastebin.com/raw/b2YNKsMY"))()
 
 local Window = library:CreateWindow(Vector2.new(500, 500), Vector2.new((workspace.CurrentCamera.ViewportSize.X/2)-250, (workspace.CurrentCamera.ViewportSize.Y/2)-250))
 
@@ -1463,7 +1463,7 @@ MiscellaneousTabCategoryBacktrack:AddToggle("Enabled", false, "MiscellaneousTabC
 						NewBacktrackPart.Color = library.pointers.MiscellaneousTabCategoryBacktrackColor.value
 						NewBacktrackPart.Size = v.Character.Head.Size
 						NewBacktrackPart.CFrame = v.Character.Head.CFrame
-						NewBacktrackPart.Parent = NoobyWareFolder
+						NewBacktrackPart.Parent = HexagonFolder
 						
 						local BacktrackTag = Instance.new("ObjectValue")
 						BacktrackTag.Parent = NewBacktrackPart
@@ -1647,16 +1647,16 @@ SettingsTabCategoryConfigs:AddTextBox("Name", "", "SettingsTabCategoryConfigsNam
 SettingsTabCategoryConfigs:AddDropdown("Config", {"-"}, "-", "SettingsTabCategoryConfigsConfig")
 
 SettingsTabCategoryConfigs:AddButton("Create", function()
-    writefile("NoobyWare/configs/"..library.pointers.SettingsTabCategoryConfigsName.value..".cfg", library:SaveConfiguration())
+    writefile("hexagon/configs/"..library.pointers.SettingsTabCategoryConfigsName.value..".cfg", library:SaveConfiguration())
 end)
 
 SettingsTabCategoryConfigs:AddButton("Save", function()
-    writefile("NoobyWare/configs/"..library.pointers.SettingsTabCategoryConfigsConfig.value..".cfg", library:SaveConfiguration())
+    writefile("hexagon/configs/"..library.pointers.SettingsTabCategoryConfigsConfig.value..".cfg", library:SaveConfiguration())
 end)
 
 SettingsTabCategoryConfigs:AddButton("Load", function()
 	local a,b = pcall(function()
-		cfg = loadstring("return "..readfile("NoobyWare/configs/"..library.pointers.SettingsTabCategoryConfigsConfig.value..".cfg"))()
+		cfg = loadstring("return "..readfile("hexagon/configs/"..library.pointers.SettingsTabCategoryConfigsConfig.value..".cfg"))()
 	end)
 	
 	if a == false then
@@ -1669,7 +1669,7 @@ end)
 SettingsTabCategoryConfigs:AddButton("Refresh", function()
 	local cfgs = {}
 
-	for i,v in pairs(listfiles("NoobyWare/configs")) do
+	for i,v in pairs(listfiles("hexagon/configs")) do
 		if v:sub(-4) == ".cfg" then
 			table.insert(cfgs, v:sub(17, -5))
 		end
@@ -1679,10 +1679,10 @@ SettingsTabCategoryConfigs:AddButton("Refresh", function()
 end)
 
 SettingsTabCategoryConfigs:AddButton("Set as default", function()
-	if isfile("NoobyWare/configs/"..library.pointers.SettingsTabCategoryConfigsConfig.value..".cfg") then
-		writefile("NoobyWare/autoload.txt", library.pointers.SettingsTabCategoryConfigsConfig.value..".cfg")
+	if isfile("hexagon/configs/"..library.pointers.SettingsTabCategoryConfigsConfig.value..".cfg") then
+		writefile("hexagon/autoload.txt", library.pointers.SettingsTabCategoryConfigsConfig.value..".cfg")
 	else
-		writefile("NoobyWare/autoload.txt", "")
+		writefile("hexagon/autoload.txt", "")
 	end
 end)
 
@@ -2221,9 +2221,9 @@ for i,v in pairs({"CT", "T"}) do
 	end)
 end
 
-if readfile("NoobyWare/autoload.txt") ~= "" and isfile("NoobyWare/configs/"..readfile("NoobyWare/autoload.txt")) then
+if readfile("hexagon/autoload.txt") ~= "" and isfile("hexagon/configs/"..readfile("hexagon/autoload.txt")) then
 	local a,b = pcall(function()
-		cfg = loadstring("return "..readfile("NoobyWare/configs/"..readfile("NoobyWare/autoload.txt")))()
+		cfg = loadstring("return "..readfile("hexagon/configs/"..readfile("hexagon/autoload.txt")))()
 	end)
 	
 	if a == false then
