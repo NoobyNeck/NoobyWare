@@ -1546,7 +1546,7 @@ MiscellaneousTabCategoryChatSpam:AddToggle("Enabled", false, "MiscellaneousTabCa
 	end
 end)
 
-MiscellaneousTabCategoryChatSpam:AddTextBox("Message", "NoobyWare is the best!", "MiscellaneousTabCategoryChatSpamMessage")
+MiscellaneousTabCategoryChatSpam:AddTextBox("Message", "NoobyWare on top!", "MiscellaneousTabCategoryChatSpamMessage")
 
 local MiscellaneousTabCategoryKeybinds = MiscellaneousTab:AddCategory("Keybinds", 2)
 
